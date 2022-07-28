@@ -1,0 +1,144 @@
+\phantomsection
+\section*{3. Continuous Functions}
+\addcontentsline{toc}{section}{3. Continuous Functions}
+
+\phantomsection
+\subsection*{1. Continuous Functions}
+\addcontentsline{toc}{subsection}{1. Continuous Functions}
+
+\begin{customdefinition}{3.1}[Continuous Functions]\hypertarget{d_3.1}{\hyperlink{d_1.1}{Click here to be more sane.}}\\
+Let $X, Y$ be topological space. A continuous function $f: X \longrightarrow Y$ is a function at underlying sets such that, for each open set $U \subset Y$, the preimage 
+$$f^{-1}(U) = \left\{x \in X \mid f(x) \in U\right\}$$
+is open (in $X$).\\
+\emph{To know more about the notation please go to Appendix $1$.}
+\end{customdefinition}
+
+\begin{customlemma}{3.1}
+Let $\B$ be a basis for the topology on $Y$. A function $f: X \longrightarrow Y$ is continuous if and only if $f^{-1}(\B)$ is open for all $B \in \B$.
+\end{customlemma}
+
+\begin{customthm}{3.2}
+Let $f: X \longrightarrow Y$ be a function between topological spaces. The following statements are equivalent:
+\begin{enumerate}
+    \item[1).] f is continuous.
+    \item[2).] For any subset $A \subset X$, we have $f(\overline{A}) \subset \overline{f(A)}$.
+    \item[3).] For any closed set $C \subset Y$, the preimage $f^{-1}(C) \subset X$ is closed.
+    \item[4).] For each $x \in X$ and open set $f(x) \in V \subset Y$, there exists an open set $x \in U \subset X$ such that $f(u) \subset V.$
+\end{enumerate}
+If the condition in $(4)$ holds for the point $x$ of $X$, we say that $f$ is continuous at the point $x$.
+\end{customthm}
+
+\begin{proof}
+We show that $(1) \implies (2) \implies (3) \implies (1)$ and $(1) \implies (4) \implies (1)$
+\begin{description}
+\item[$1) \implies 2)$.] Assume that $f$ is continuous. Let $A$ be a subset of $X$. We show that if $x \in \overline{A}$, then $f(x) \in \overline{f(A)}$. Let $V$ be a neighborhood of $f(x)$ ($V$ is an open set containing $x$). Then $f^{-1}(V)$ is an open set of $X$ containing $x$; it must intersect $A$ in some point $y$. Then $V$ intersects $f(A)$ in the point $f(y)$, so that $f(x) \in \overline{f(A)}$, as desired.
+\item[$2) \implies 3)$.] Let $B$ be closed in $Y$ and let $A = f^{-1}(B)$. We wish to prove that $A$ is closed in $X$; we show that $\overline{A} = A$. By elementary set theory, we have $f(A) = f(f^{-1}(B)) \subset B$. Therefore, if $x \in \overline{A}$,
+    $$f(x) \in f(\overline{A}) \subset \overline{f(A)} \subset \overline{B} = B,$$
+so that $x \in f^{-1}(B) = A$. Thus $\overline{A} \subset A$, so that $\overline{A} = A$, as desired.
+\item[$3) \implies 1)$.] Let $V$ be an open set of $Y$. Set $B = Y - V$. Then 
+    $$f^{-1}(B) = f^{-1}(Y) - f^{-1}(V) = X - f^{-1}(V)$$
+    Now $B$ is a closed set of $Y$. Then $f^{-1}(B)$ is closed in $X$ by hypothesis, so that $f^{-1}(V)$ is open in $X$, as desired.
+\item[$1) \implies 4)$.] Let $x \in X$ and let $V$ be a neighborhood of $f(x)$. Then the set $U = f^{-1}(V)$ is a neighborhood of $x$ such that $f(U) \subset V$.
+\item[$4) \implies 1)$.] Let $V$ be an open set of $Y$; let $x$ be a point of $f^{-1}(V)$. Then $f(x) \in V$, so that by hypothesis there is a neighborhood $U_x$ of $x$ such that $f\left(U_x\right)\subset V$. Then $U_x \subset f^{-1}(V)$. It follows that $f^{-1}(V)$ can be written as the union of the open sets $U_x$, so that it is open.
+\end{description}
+\end{proof}
+
+\begin{customthm}{3.3}[Constructing Continuous Functions]
+Let $X, Y, Z$ be topological spaces. 
+\begin{enumerate}
+    \item[a).] (Constant Function) If $f: X \longrightarrow Y$ maps to all of $X$ into the single point $y_0$ of Y, then $f$ is continuous.
+    \item[b).] (Inclusion) If $A$ is subspace of $X$, the inclusion function $j: A \longrightarrow X$ is continuous.
+    \item[c).] (Composites) If $f: X \longrightarrow Y$ and $g: Y \longrightarrow Z$ are continuous, then the map $g \circ f : X \longrightarrow Z$ is continuous.
+    \item[d).] (Restricting the domain) If $f: X \longrightarrow Y$ is continuous, and if $A$ is a subspace of $X$, then the restricted function $f_{\vert A} : A \longrightarrow Y$ is continuous (where $A \subset Y$ is given the subspace topology).
+    \item[e).] (Restricting or expanding the range) Let  $f: X \longrightarrow Y$ is continuous. If $Z$ is a subspace of $Y$ containing the image set $f(X)$, then the function $g: X \longrightarrow Z$ obtained by restricting the range of $f$ is continuous. If $Z$ is a space having $Y$ as a subspace, then the function $h: X \longrightarrow Z$ obtained by expanding the range of $f$ is continuous.  
+    \item[f).] (Local formulation of continuity) The map $f: X \longrightarrow Y$ is continuous if $X$ can be written as the union of open sets $X = \underaccent{i\in I}{\bigcup}U_{\alpha}$ such that $f_{\vert U_{\alpha}}: U_{\alpha} \longrightarrow Y$ is continuous for each $\alpha$.
+\end{enumerate}
+\end{customthm}
+
+\newpage
+
+\begin{proof}
+Let's proof every single one of them:
+\begin{enumerate}
+    \item[a).] Let $f(x) =y_0$ for every $x \in X$. Let $V$ be open in $Y$. The set $f^{-1} (V)$ equals $X$ or $\varnothing$, depending on whether $V$ contains $y_0$ or not. In either case, it is open.
+    \item[b).] If $U$ is open in $X$, then $j^{-1}(U) = A \cap U$, which is open in $A$ by definition of the subspace topology.
+    \item[c).] If $U$ is open in $Z$, then $g^{-1}(U)$ is open in $Y$ and $f^{-1}(g^{-1}(U))$ is open in $X$. But
+                $$f^{-1}(g^{-1}(U)) = \left(g \circ f\right)^{-1}(U),$$
+                by elementary set theory. (The book really need to drop this ``elementary" notation, makes me feels even dumber.)
+    \item[d).] The function $f_{\vert A}$ equals the composite of the inclusion map $j: A \longrightarrow X$ and the map $f: X \longrightarrow Y$, both of which are continuous.
+    \item[e).] Let $f: X \longrightarrow Y$ be continuous. If $f(X) \subset Z \subset Y$, we show that the function $g: X \longrightarrow Z$ obtained from $f$ is continuous. Let $B$ open in $Z$. Then $B = Z \cap U$ for some open set $U$ of $Y$. Because $Z$ contains the entire image set $f(X)$,
+                $$f^{-1}(U) = f^{-1}(B),$$
+                by the elementary set theory (Shut the f**k up!). Since $f^{-1}(U)$ is open, so is $g^{-1}(B)$.\\
+                To show $h: X \longrightarrow Z$ is continuous if $Z$ has $Y$ as a subspace, note that $h$ is the composite of the map $f: X \longrightarrow Z$ and the inclusion map $j: Y \longrightarrow Z$.
+    \item[f).] By hypothesis, we can write $X$ as a union of open sets $U_{\alpha}$, such that $f_{\vert U_{\alpha}}$ is continuous for each $\alpha$. Let $V$ be an open set in $Y$. Then
+                $$f^{-1}(V) \cap U_{\alpha} = \left(f_{\vert U_{\alpha}}\right)^{-1}(V),$$
+                because both expressions represent the set of those points $x$ lying in $U_{\alpha}$ for which $f(x) \in V$. Since $f_{\vert U_{\alpha}}$ is continuous, this set is open in $U_{\alpha}$, and hence open in $X$. But
+                $$f^{-1}(V) = \underaccent{\alpha}{\bigcup} \left(f^{-1}(V) \cap U_{\alpha}\right),$$
+                so that $f^{-1}(V)$ is also open in $X$.
+\end{enumerate}
+\end{proof}
+
+\begin{customthm}{3.4}[Another Version (Slightly Weaker) of Gluing ($f$ in the previous theorem) For Closed Sets](Ready?)\\
+Let $X$ be a topological space with closed subsets $A, B \subset X$ such that $X = A\cup B$. Let 
+        $$g: A \longrightarrow Z, \,\,\,\,\, h: B\longrightarrow Z$$
+        be continuous functions such that 
+        $$g_{\vert A \cap B} = h_{\vert A \cap B}$$
+        Then $g$ and $h$ glue to a continuous function 
+        \begin{align*}
+            f:  X &\longrightarrow Z\\
+                x &\longrightarrow \begin{cases}
+               g(x), & \text{ if $x\in A$}\\
+               h(x), & \text{ if $x\in B$}
+               \end{cases}
+        \end{align*}
+\end{customthm}
+
+\begin{proof}
+Recall (Theorem $3.2(3)$) that $f$ is continuous if and only if $f^{-1}(C) \subset X$ is closed for all $C \subset Z$ closed. Basic set theory gives:
+    $$f^{-1}(C) = g^{-1}(C) \cap h^{-1}(C).$$
+    Since $g, h$ are continuous, $g^{-1}(C) \subset A$ and $h^{-1}(C) \subset B$ are closed. Since $A$ and $B$ are closed in $X$, so too are $g^{-1}(C)$ and $h^{-1}(C)$. Since finite intersections of closed sets are closed, we can conclude that $f^{-1}(C) \subset X$ is closed.
+\end{proof}
+
+
+\phantomsection
+\subsection*{2. Homeomorphisms}
+\addcontentsline{toc}{subsection}{2. Homeomorphisms}
+
+\begin{customdefinition}{3.2}[\Hs] (``Sameness")
+\begin{enumerate}
+    \item[1).] A continuous function $f: X \longrightarrow Y$ with a continuous inverse $f^{-1}: Y \longrightarrow X$ is called a \h.
+    \item[2).] Topological spaces $X$ and $Y$ are called \hc\, if there exists a \h $\,\,\,X \longrightarrow Y$.
+\end{enumerate}
+Book: Let $X$ and $Y$ be topological spaces; let $f: X \longrightarrow Y$ be a bijection. If both the function $f$ and the inverse function 
+        $$f^{-1}: Y \longrightarrow X$$
+        are continuous, then $f$ is called a \h.\\
+Comments on \h: \begin{enumerate}
+    \item[1).] For $f: X \longrightarrow Y$ to be a \h, we need 
+        \begin{enumerate}
+            \item[i).] $f$ is continuous
+            \item[ii).] $f$ is a bijection (so that $f^{-1}: Y \longrightarrow X$ exists)
+            \item[iii).] $f^{-1}$ is continuous
+        \end{enumerate}
+    \item[2).] The identity map $id: X \longrightarrow X$ is a \h.\\
+                If $f: X \longrightarrow Y$ is a \h, then so too is $f^{-1}: Y \longrightarrow X$; its inverse if $f$.\\
+                If $f: X \longrightarrow Y$ and $g: Y \longrightarrow Z$ are \hs, then so too is $g\circ f : X \longrightarrow Z$.\\
+                It follows that \h\, is an equivalence relation.
+    \item[3).] Homeomorphisms preserves all topological properties of topological spaces. Just like in modern algebra, an \emph{isomorphism} is a bijective correspondence that preserves the algebraic structure involved.
+\end{enumerate}
+\end{customdefinition}
+
+\begin{customdefinition}{3.3}
+A function $f: X \longrightarrow Y$ is called open if $f(U) \subset Y$ is open for all $U \subset X$ open.
+\end{customdefinition}
+
+\begin{customthm}{3.5}
+A continuous bijection 
+$f: X \longrightarrow Y$
+is a \h \, if and only if f is open.
+\end{customthm}
+
+\begin{proof}
+Since $f$ is a continuous bijection, it is a \h\, if and only if $\left(f^{-1}\right)^{-1} (U) \subset Y$ is open for all $U \subset X$ open. The theorem now follows form the (set theory) identity
+    $$\left(f^{-1}\right)^{-1} (A) = A$$
+    for all $A \subset X$.
+\end{proof}

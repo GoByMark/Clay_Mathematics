@@ -1,0 +1,42 @@
+\phantomsection
+\section*{1. Sets and Continuity}
+\addcontentsline{toc}{section}{1. Sets and Continuity}
+
+\begin{cusques}{1.1}[Finite and Infinite Sets] The following are checking basic understandings of set theory and the foundations of the axioms of topology.
+\begin{enumerate}
+    \item[(a).] A finite subset of $\R^n$ is closed.
+    \begin{proof}
+        This is true. Consider $A = \left\{x_1, \dots, x_n\right\} \subset \R^n$ a finite subset. Then we can write 
+            $$A = \left(\bigcup_{i=1}^{n}\left(\R^n \setminus \left\{x_i\right\}\right)\right)^c$$
+        As the sets $\R^n\setminus\left\{x_i\right\}$ are open, so is their intersection. Thus $A$ is closed, being the complement of an open set.
+    \end{proof}
+    \item[(b).] If $\tau$ and $\sigma$ are topologies on a set $X$, then so too are
+    $$\tau \cap \sigma := \left\{U \mid U \in \tau \text{ and } Y \in \sigma\right\} \,\,\,\,\text{ and }\,\,\,\, \tau \cup \sigma := \left\{U \mid U \in \tau \text{ or } Y \in \sigma\right\}$$
+    \begin{proof}
+        This is false. The intersection of two topologies is again a topology using the definition of a topology. However the union of two topologies is not necessarily a topology again. Consider $A = \left\{1,\, 2,\, 3\right\}$. Then $\tau = \left\{\varnothing,\, \{1\},\, \{1, 2\},\, A \right\}$ is a topology on $A$ and $\sigma = \left\{\varnothing,\, \{3\},\, \{2, 3\},\, A \right\}$ is as well, but in their union the finite intersection $\left\{1,\, 2\right\} \cap \left\{2,\, 3\right\} = \left\{2\right\}$ is not contained.
+    \end{proof}
+    \item[(c).] Let $\left\{A_i\right\}_{i \in I}$ be an arbitrary collection of closed subsets of $\R^n$. Then $\underaccent{i \in I}{\bigcup}A_i \subset \R^n$ is closed.
+    \begin{proof}
+        This is false. It suffices to produce a counterexample for $n =1$. For each positive integer $i$, define a closed subset of $\R$ by 
+            $$A_i = \left[0, 1 - \dfrac{1}{i}\right]$$
+        The union $\bigcup\limits_{i=1}^{\infty} A_i = [0, 1)$ is not closed: every open interval centered at $1$ intersects $A$.
+    \end{proof}
+\end{enumerate}
+\end{cusques}
+
+
+\begin{cusques}{1.2}[Proving Topologies] The following are checking the understanding the axioms of topology.
+\begin{enumerate}
+    \item[(a).] Let 
+        $$\tau = \left\{U \subset \R \mid \text{ for all } u \in U, \text{ there exists } a < b \text{ such that } u \in [a, b) \subset U\right\}.$$
+        Prove that $\tau$ is a topology on $\R$.
+        \begin{proof} We need to verify the three axioms for a topology:
+            \begin{enumerate}
+                \item[i.] Any real number lies in an interval of the form $[a, b)$, thus it is clear that $\varnothing,\, \R$ lie in $\tau$.
+                \item[ii.] Let $\left\{U_i\right\}_{i \in I}$ be an arbitrary collection of elements of $\tau$ and set $U = \underaccent{i \in I}{\bigcup}U_i$. Let $u \in U$. Then $u \in U_i$ for some $i \in I$. Since $U_i$ is open, there exists an $a \in \R$ such that $u \in [a, b) \subset U_i$. But then $u \in [a, b) \subset U$, so that $U \in \tau$.
+                \item[iii.] Let $\left\{U_i\right\}_{i \in I}$ be an finite collection of elements of $\tau$ and set $U = \underaccent{i \in I}{\bigcap} U_i$. Let $u \in U$. Then $u \in U_i$ for each $i \in I$. Since $U_i$ is open, there exists $a_i, b_i \in \R$ such that $u \in [a_i,\, b_i)$. Let $a = \text{max}\left\{a_i\mid i \in I\right\}$ and $b = \text{min}\left\{b_i \mid i \in I\right\}$. Since $I$ is finite, $a$ and $b$ are well-defined real numbers, and they still fulfill $a<b$. Then $u \in [a,\, b)$ and, since $[a,\, b) \subset [a_i,\, b_i) \subset U_i$ for all $i \in I$, we have $u \in [a,\, b) \subset U$. Hence, $U\in \tau$.
+            \end{enumerate}
+        \end{proof}
+    \item[(b).] Let 
+\end{enumerate}
+\end{cusques}

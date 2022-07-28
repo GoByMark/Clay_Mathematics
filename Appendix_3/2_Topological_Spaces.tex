@@ -1,0 +1,52 @@
+\phantomsection
+\section*{2. Topological Spaces}
+\addcontentsline{toc}{section}{2. Topological Spaces}
+
+\begin{cusques}{2.1}[Basis] The following are checking basic understandings of basis of a topology.
+\begin{enumerate}
+    \item[(a).] What is a basis for a topology on $\R$?
+    \begin{proof}
+    \end{proof}
+\end{enumerate}
+\end{cusques}
+
+\begin{cusques}{2.2}[Subspace Topology] The following are checking basic understandings of subspace construction of topological spaces.
+\begin{enumerate}
+    \item[(a).] 
+    \begin{proof}
+    \end{proof}
+\end{enumerate}
+\end{cusques}
+
+\begin{cusques}{2.3}[Product Topology] The following are checking basic understandings of product construction of topological spaces.
+\begin{enumerate}
+    \item[(a).] 
+    \begin{proof}
+    \end{proof}
+\end{enumerate}
+\end{cusques}
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Hausdorff Spaces}
+
+\begin{cusques}{2.4}[Hausdorff] Prove that a topological space $X$ is Hausdorff if and only if the diagonal 
+$$\Delta = \left\{\left(x, x\right) \mid x \in X\right\}$$
+is closed in $X \times X$
+    \begin{proof}
+    \end{proof}
+\end{cusques}
+
+\begin{cusques}{2.?}[Interiors and Closures] The following are checking the understandings of interiors and closures
+\begin{enumerate}
+    \item[(a).] $\text{Int} \left(\mathbb{Q}\right) = \varnothing, \,\,\, \overline{\mathbb{Q}} = \R$
+    \begin{proof}
+    For the interior, since it's the union of all open sets contained in $\mathbb{Q}$, then $\forall q \in \mathbb{Q}, \, \forall \epsilon > 0, \, B_{\epsilon}q = \left\{x \in \R \mid |x - q| < \epsilon\right\}$ contains irrational numbers that are not in $\mathbb{Q}$. So the only open interval we can have is the $\varnothing$, hence, $\text{Int} \left(\mathbb{Q}\right) = \varnothing$. Note, if the whole set is $\mathbb{Q}$, then $\text{Int} \left(\mathbb{Q}\right) = \mathbb{Q}$.\\
+    For the closure, since it's the intersection of all closed sets of $\R$ which contain $\mathbb{Q}$, we can assume $\mathbb{Q} \subset C \subset \R$, for some closed set $C$. Then, $\R \setminus C$ must be open since the complement of a closed set is open. However, every single open interval of $\R$ has to include some rational numbers, and $\mathbb{Q}$ is out of the picture because $\mathbb{Q} \subset C$. Therefore, $\R \setminus C$ can only be $\varnothing$, then $C = \R$.
+    \end{proof}
+    \item[(b).] Find the closure, interior and boundary of each of the following subsets of $\R^2$
+        \begin{enumerate}
+            \item[i)] 
+        \end{enumerate}
+\end{enumerate}
+\end{cusques}
+

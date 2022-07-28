@@ -1,0 +1,268 @@
+\phantomsection
+\section*{5. Connectedness and Compactness}
+\addcontentsline{toc}{section}{5. Connectedness and Compactness}
+
+\phantomsection
+\subsection*{1. Connectedness}
+\addcontentsline{toc}{subsection}{1. Connectedness}
+
+\begin{customdefinition}{5.1}[Connected]
+A topological space $X$ is called connected if it {\bf cannot} be written as a union of disjoint non-empty open sets, $U_1, U_2 \subset X$.\\
+\emph{Book:} Let $X$ be a topological space. A {\bf separation} of $X$ is a pair $U, V$ of disjoint nonempty open subsets of $X$ whose union is $X$. The space $X$ is said to be {\bf connected} if there does not exist a separation of $X$.\\
+\emph{Another Way:} A space $X$ is connected if and only if the only subsets of $X$ that are both open and closed in $X$ are the empty set and $X$ itself.\\
+\emph{Extra Comment:} So, to prove that $X$ is connected, assume that 
+$$X = U_1 \cup U_2$$
+with $U_1, U_2 \subset X$ disjoint and open, and then prove that $U_1 = \varnothing$ or $U_2 = \varnothing$.
+\end{customdefinition}
+
+\begin{customthm}{5.1}
+The closed interval $[0, 1]$ is connected (in Euclidean topology). More generally, the intervals $(a, b),\,[a, b],\,(a, b],\,[a, b)$, with $-\infty \leqslant a < b \leqslant \infty$, are connected. In fact, those are the only connected subsets of $\R$. 
+\end{customthm}
+
+\begin{customthm}{5.2}
+Let $U \subset \R$ (with its subspace topology) be connected. Then $U$ is one of the intervals from theorem $5.1$. 
+\end{customthm}
+
+\begin{proof}
+It suffices to prove that if $a, b \in U$, then $[a, b] \subset U$. Suppose that $c \in [a, b]$ is not in $U$. The sets
+$$V_1 = (-\infty, c) \cap U, \,\,\,\, V_2 = (c, \infty) \cap U$$
+are then open, disjoint and satisfy $V_1 \cup V_2 = U$. Since $U$ is connected, $V_1 = \varnothing$ or $V_2 = \varnothing$, a contradiction, as $a \in V_1$ and $b \in V_2$.
+\end{proof}
+
+\begin{customthm}{5.3}
+A topological space $X$ is connected if and only if the only subsets of $X$ which are open and closed are $\varnothing, X$.
+\end{customthm}
+
+\begin{proof}
+Assume that $X$ is connected and $U \subset X$ is open and closed. Then $X = U \cup (X \setminus U).$ Note that $U\cap (X \setminus U) = \varnothing$ and $X \setminus U$ is open. Since $X$ is connected, $U = \varnothing$ or $U = X$.\\
+Conversely, assume that $X$ is such that the only open sets are $\varnothing$ or $X$. Say $X = U_1 \cup U_2$ for disjoint open sets $U_i \subset X$. Then $X \setminus U_1 = U_2$ is closed. Hence, $U_2 = \varnothing$ or $U_2 = X$; in the latter case $U_1 = \varnothing$.
+\end{proof}
+
+\begin{customthm}{5.4}
+Let $f: X \longrightarrow Y$ be continuous function. If $X$ is connected, the image of $f$, $\left\{f(x) \mid x \in X\right\} \subset Y$, is connected.
+\end{customthm}
+
+\begin{customcoro}{5.5}[Intermediate Value Theorem]
+Let $f: X \longrightarrow \R$ be a continuous function. Assume that $X$ is connected. If $a, b \in f(x)$, then 
+$$[a, b] \subset f(x).$$
+\emph{Book:} Let $f: X \longrightarrow Y$ be a continuous map, where $X$ is a connected space and $Y$ is an ordered set in the order topology. If $a$ and $b$ are two points of $X$ and if $r$ is a point of $Y$ lying between $f(a)$ and $f(b)$, then there exists a point $c$ of $X$ such that $f(c) = r$. \\
+The intermediate value theorem of calculus is the special case of this theorem that occurs when we take $X$ to be a closed interval in $\R$ and $Y$ to be $\R$.
+\hypertarget{Corollary_5.5}{\hyperlink{ex.c.5.5}{Click here for examples.}}
+\end{customcoro}
+
+\begin{customcoro}{5.6}The quotient of connected topological space is connected. \hypertarget{Corollary_5.6}{\hyperlink{ex.c.5.6}{Click here for examples.}}
+\end{customcoro}
+
+\begin{customdefinition}{5.2}[Connected Components]Let $X$ be a topological space. Define an equivalence relation $\sim$ on $X$ by 
+\begin{center}
+    $x \sim y$ if there exists $A \subset X$ connected such that $x,y \in A$
+\end{center}
+The equivalence class of $\sim$ are called connected components of $X$.\\
+\emph{Book:} Given $X$, define an equivalence relation on $X$ by setting $x \sim y$ if there is a connected subspace of $X$ containing both $x$ and $y$. The equivalence classes are called the {\bf components} (or the ``connected components") of $X$.\\
+\emph{Comment:} Note that a space $X$ is connected is and only if it has a single connected component. So, $[0, 1]$ has one connected component, while $[0, 1] \cup [2,3]$ has two.
+\end{customdefinition}
+
+\begin{proof}
+Symmetry and reflexivity of the relation are obvious. Transitivity follows by noting that if $A$ is a connected subspace containing $x$ and $y$, and if $B$ is a connected subspace containing $y$ and $z$, then $A \cup B$ is a subspace containing $x$ and $z$ that is connected because $A$ and $B$ have the point $y$ in common. \\
+Or to be cooler: Let $U, V \subset A \cup B$ be open and disjoint such that 
+$$U \cup V = A \cup B.$$
+Assume without loss of generality that $y \in U$. Then 
+$$U \cap A \neq \varnothing, \,\,\, U \cap B \neq \varnothing$$
+Then 
+$$A = \left(U \cap A\right) \cup \left(V \cap A\right), \,\,\, B = \left(U \cap B\right) \cup \left(V \cap B\right)$$
+Since $A$ is connected, $V \cap A = \varnothing$, that is, $V \subset B$. But then $U \cap B = \varnothing$, as $B$ is connected. This is a contradiction.
+\end{proof}
+
+\begin{customthm}{5.7}
+Let $X,\, Y$ be connected topological spaces. Then $X \times Y$ is connected.
+\hypertarget{Theorem_5.7}{\hyperlink{ex.t.5.7}{Click here for examples.}}
+\end{customthm}
+
+\begin{customthm}{5.8}
+The connected components of a topological space $X$ are connected disjoint subspaces of $X$ whose union is $X$, such that each nonempty connected subspace of $X$ intersects only one of them.\\
+\emph{Comment:} A {\bf stronger version} is the connected components of a topological space $X$ are connected disjoint subspaces of $X$ whose union is $X$, such that each nonempty connected subspace of $X$ {\bf lies} in exactly one connected component.
+\end{customthm}
+
+\begin{proof}
+The construction of connected components as equivalence classes implies that they are pairwise disjoint and cover $X$.\\
+Let $U \subset X$ be connected. Say $U$ intersects two connected components $C_1$ and $C_2$. Then $C_1 \cap C_2 \neq \varnothing$ so that $C_1 = C_2$.\\
+We need to check that each connected component $C$ is connected. Fix $x \in C$. if $y \in C$, then there exists a connected subset $A_y \subset X$, such that 
+$$x, y \in A_u\,\,\, (\implies x \sim y)$$
+Then 
+$$C \subset \underaccent{y\in C}{\bigcup} \underbrace{A_y}_{\text{connected}}$$
+And by the result just proved, $A_y \subset C$. Therefore,
+$$C = \underaccent{y\in C}{\bigcup} A_y$$
+\end{proof}
+
+\begin{customdefinition}{5.3}[Path Connectedness]Let $X$ be a topological space. \hypertarget{Definition_5.3}{\hyperlink{ex.d.5.3}{Click here for examples.}}
+\begin{enumerate}
+    \item[1).] A {\bf path} in $X$ is a continuous function $f: [a,b] \longrightarrow X$ for some $-\infty < a < b < \infty$.
+    \item[2).] Call $X$ {\bf path connected} if, for each $x, y \in X$, there exists a path from $x$ to $y$, that is, a path $f: [a,b] \longrightarrow X$ such that $f(a) = x$, $f(b) = y$.
+    \item[3).] The {\bf path components} of $X$ are the equivalence classes of $X$ under the equivalence relation
+    \begin{center}
+        $x \sim y$ if there exists a path from $x$ to $y$.
+    \end{center}
+\end{enumerate}
+\end{customdefinition}
+
+\phantomsection
+\subsection*{2. Compactness}
+\addcontentsline{toc}{subsection}{2. Compactness}
+
+\begin{customdefinition}{5.4}[Open Cover]Let $X$ be a topological space. 
+\begin{enumerate}
+    \item[1).] An {\bf open cover} of $X$ is an arbitrary collection $\left\{U_i\right\}_{i \in I}$ of open subsets of $X$ such that
+    $$\underaccent{i \in I}{\bigcup} U_i = X.$$
+    \item[2).] A {\bf subcover} of an open cover $\left\{U_i\right\}_{i \in I}$ is a subset $J \subset I$ such that $\left\{U_j\right\}_{j \in J}$ is an open cover of $X$.
+    \item[3).] A {\bf finite subcover} of an open cover is a subcover as in $2)$ with $J$ a finite set. (A {\bf finite subcover} subcover is a subcover with $|J| < \infty$.)
+\end{enumerate}
+\end{customdefinition}
+
+\begin{customdefinition}{5.5}[Compactness] \hypertarget{Definition_5.5}{\hyperlink{ex.d.5.5}{Click here for examples.}}\\
+A topological space $X$ is called {\bf compact} if every open cover of $X$ has a finite subcover.\\
+\emph{Book:} A space $X$ is said to be {\bf compact} if every open covering $\mathcal{A}$ of $X$ contains a finite subcollection that also covers $X$.\\
+\emph{Comment:} Really difficult to construct examples using this definition. Since it may be easy to show a space is non-compact using it.
+\end{customdefinition}
+
+\begin{customthm}{5.9}
+If $X$ is compact and $C \subset X$ is a closed subset, then $C$ is compact.\\
+\emph{Recall:} If $Y$ is a subspace of $X$, a collection $\mathcal{A}$ of subsets of $X$ is said to {\bf cover} $Y$ if the union of its elements contains $Y$.
+\end{customthm}
+
+\begin{proof}
+Let $\left\{U_i\right\}_{i \in I}$ be an open cover of $C$. Then $U_i = \widetilde{U}_i \cap C$ for some open subset $\widetilde{U}_i \subset X$. Then 
+$$\left\{X \setminus C\right\} \cup \left\{\widetilde{U}_i\right\}_{i \in I}$$
+is an open cover of $X$. (Since $C$ is closed, $X \setminus C$ is open.) \\
+Since $X$ is compact, there is a finite subcover, say 
+$$\left\{X \setminus C\right\} \cup \left\{\widetilde{U}_j\right\}_{j \in J},$$
+with $J\subset I$ finite. Then $\left\{U_j\right\}_{j \in J}$ is a finite subcover of $\left\{U_i\right\}_{i \in I}$, and $C$ is compact.
+\end{proof}
+
+\begin{customthm}{5.10}
+Let $X$ be Hausdorff. If $C \subset X$ is a compact subspace, then $C$ is closed.\\
+\emph{Comment:} This the converse of the previous theorem is true only if we made $X$ Hausdorff.
+\end{customthm}
+
+\begin{proof}
+We prove that $X \setminus C \subset X$ is open. Let $x \in X \setminus C$, want an open set $W \subset X$ such that $x \in W \subset X \setminus C$. For each $c \in C$, there exists open sets 
+$$c \in U_c, \,\,\, x \in V_c$$
+and 
+$$U_c \cap V_c = \varnothing$$
+Then $\left\{U_c \cap C\right\}_{c \in C}$ is an open cover of $C$. By compactness, there exists $C_1, \dots, C_n \in C$ such that 
+$$\left\{U_{C_i} \cap C\right\}_{i = 1, \dots, n}$$
+covers $C$ (finite subcover). Then 
+$$W = V_{C_1} \cap \dots \cap V_{C_n}$$
+is an open subset of $X$ which contains $x$ and is disjoint from $C$. Note that $x \in V$ and $W$ is open. So, $x \in W \subset X \setminus C$, proving that $X \setminus C$ is open.
+\end{proof}
+
+\begin{customthm}{5.11}
+Let $f: X \longrightarrow Y$ be continuous function with $X$ is compact. Then $f(X) \subset Y$ is compact. 
+\end{customthm}
+
+\begin{proof}
+Let $\left\{U_i\right\}_{i \in I}$ and open cover of $f(X)$. Write 
+$$U_i = \widetilde{U}_i \cap f(X)$$
+for some $\widetilde{U}_i \subset Y$ is open. Then 
+$$\left\{f^{-1}\left(\widetilde{U}_i\right)\right\}_{i \in I}$$
+is an open cover of $X$. By compactness of $X$, there is a finite subcover 
+$$\left\{f^{-1}\left(\widetilde{U}_j\right)\right\}_{j \in J}$$
+Then 
+$$\left\{U_j\right\}_{j \in J}$$
+is a finite subcover of $f(X)$.
+\end{proof}
+
+\begin{customthm}{5.12}
+For any $a < b$, the closed interval $[a, b] \subset \R$ is compact. (Proof is pretty insane, will come back when having more time.)
+\end{customthm}
+
+\begin{customthm}{5.13}[Heine-Borel]
+A subset of $\R$ is compact if and only if it is closed and bounded.
+\end{customthm}
+
+\begin{customthm}{5.14}[The Theorem of Life Appreciation]
+\addcontentsline{toc}{subsection}{(The Theorem of Life Appreciation)}
+\hypertarget{Theorem_5.14}{\hyperlink{ex.t.5.14}{Click here for examples.}}\\
+Let $f : X \longrightarrow Y$ be a continuous function which is bijective. If $X$ is compact and $Y$ is Hausdorff, than $f^{-1}$ is continuous. So $f$ is a homeomorphism.
+\end{customthm}
+
+\begin{proof}(Would be a shame to not give it a proof)\\
+We need to show that the images of closed sets of $X$ under $f$ are closed in $Y$, this will prove the continuity of the map $f^{-1}$. Let $C \subset X$ be closed. Since $X$ is compact, so is $C$ (Theorem, $5.9$). Then $f(C) \subset Y$ is compact (Theorem $5.11$). Since $Y$ is Hausdorff, $f(C)$ is closed (Theorem $5.10$).
+\end{proof}
+
+\begin{customthm}{5.15} Let $X, Y$ be compact topological spaces. Then $X \times Y$ is compact. (Proof is again pretty insane, will come back when having more time.)
+\end{customthm}
+
+\begin{customcoro}{5.16}The following topological spaces are compact:
+\begin{enumerate}
+    \item[1).] $[0,1]^n$ for each $n \geqslant 1$.
+    \item[2).] The $n$-sphere $S^n = [0,1]^n / _{\partial [0, 1]^n}$ for each $n \geqslant 1$.
+    \item[3).] The $n$-torus $\Pi^n = \left(S^1\right)^n$ for each $n \geqslant 2$.
+    \item[4).] The real projective spaces $\mathbb{RP}^n$ for each $n \geqslant 1$.
+\end{enumerate}
+\end{customcoro}
+
+\begin{proof} The proofs for the previous corollary:
+\begin{description}
+    \item[1).] This follows from Theorem $5.12$ and $5.15$
+    \item[2) $\sim$ 3).] These follow from $1)$ and the fact that the quotient of a compact space is compact (by Theorem $5.11$).
+    \item[4).] Consider the $n$-sphere
+    $$S^n = \left\{\left(x_1, \dots, x_{n+1} \right) \in \R^{n+1} \Big| \ds\sum_{i = 1}^{n +1} \left(x_i\right)^2 = 1 \right\}$$
+    Define an equivalence relation on $S^n$ by 
+    $$p \sim -p, \,\,\, p \in S^n$$
+    (Note: Equivalence classes in $S^n$ are the antipodal points.) The quotient space $S^n /_{\sim}$ is $\mathbb{RP}^n$. It is compact since $S^n$ is. (To use that $S^n$ is compact, one can prove that $[0,1]^n / _{\partial [0, 1]^n} \simeq S^n$) using Theorem $5.14$ or use that $S^n \subset \R^{n+1}$ is closed and bounded and apply Heine-Borel.)
+\end{description}
+\end{proof}
+
+\begin{customthm}{5.17}[Extreme Value Theorem] Let $f: X \longrightarrow \R$ be a continuous function. If $X$ is compact, then there exist points $x_m, x_M \in X$ such that 
+$$f\left(x_m\right) \leqslant f(x) \leqslant f\left(x_M\right) , \,\,\,\,\, x \in X.$$
+\end{customthm}
+
+\begin{proof}
+The image $f(X) \subset \R$ is compact, by Theorem $5.11$. We show that $f(X)$ has a maximal element $M$ and then choose $x_M \in X$ such that $f\left(x_M\right) = M$. Let's proceed by contradiction. In this case, if $f(X)$ has no largest element, the collection 
+    $$\left\{(-\infty, y) \cap f(X) \mid y \in f(X)\right\}$$
+is an open cover of $f(X)$. By compactness, there exists $y_1 < \dots < y_n$ in $f(X)$ such that 
+    $$\left\{(-\infty, y_i) \cap f(X) \mid i = 1, \dots, n\right\}$$
+covers $f(X)$. But then $y_{n} \notin f(X)$, a contradiction.
+\end{proof}
+
+\begin{customdefinition}{5.6}[Distance]
+Let $(X, d)$ be a metric space and $A \subset X$ a non-empty subset. The {\bf distance} from $x \in X$ to $A$ is 
+$$d(x, A) = \text{inf}\left\{d(x, a) \mid a \in A\right\}$$
+\emph{Comment:} To show that for fixed $A$, the function $d(x, A)$ is a continuous function of $x$: Given $x, y \in X$, one has the inequalities 
+$$d(x, A) \leqslant d(x, a) \leqslant d(x, y) + d(y, a),$$
+for each $a \in A$. It follows that 
+$$d(x, A) - d(x,y) \leqslant \text{inf} d(y, a) = d(y, A),$$
+so that 
+$$d(x, A) - d(y, A) \leqslant d(x, y).$$
+The same inequality holds with $x$ and $y$ interchanged; continuity of the function $d(x,A)$ follows. Recall the {\bf diameter} of a bounded subset $A$ of a metric space $(X, d)$ is the number 
+$$\text{sup}\left\{d(a_1, a_2) \mid a_1, a_2 \in A\right\}.$$
+\end{customdefinition}
+
+\begin{customthm}{5.18}[The Lebesgue Number Lemma] Let $\left\{U_i\right\}_{i \in I}$ be an open cover of a compact metric space $(X, d)$. Then there exists a $\delta > 0$ (called a {\bf Lebesgue Number}) such that each (bounded) subset of $X$ of diameter less than $\delta$ is contained in some $U_i$. (Can't even understand the theorem yet, leave the proof for later)
+\end{customthm}
+
+\begin{customdefinition}{5.7}[Uniform Continuity]
+A function $f$ from the metric space $(X, d_X)$ to the metric space $(Y, d_Y)$ is said to be {\bf uniformly continuous} if given $\epsilon > 0$, there is a $\delta > 0$ such that for every pair of points $x_0, x_1$ of $X$.
+$$d_X\left(x_0, x_1\right) < \delta \implies d_Y\left(f(x_0), f(x_1)\right) < \epsilon.$$
+\end{customdefinition}
+
+\begin{customdefinition}{5.8}[Limit Point Compact]
+A space $X$ is said to be {\bf limit point compact} if every infinite subset of $X$ has a limit point.
+\end{customdefinition}
+
+\begin{customthm}{5.19}Compactness implies limit point compactness, but not conversely.
+\end{customthm}
+
+\begin{customdefinition}{5.9}[Sequentially Compact]
+Let $X$ be a topological space. If $(x_n)$ is a sequence of points of $X$, and if 
+$$n_1 < n_2 < \dots < n_i < \dots $$
+is an increasing sequence of positive integers, then the sequence $(y_i)$ defined by setting $y_i = x_{n_i}$ is called a {\bf subsequence} of the sequence $(x_n)$. The space $X$ is said to be {\bf sequentially compact} if every sequence of points of $X$ has a convergent subsequence.
+\end{customdefinition}
+
+\begin{customthm}{5.20}Let $X$ be a metrizable space. Then the following are equivalent:
+\begin{enumerate}
+    \item[1).] $X$ is compact.
+    \item[2).] $X$ is limit point compact.
+    \item[3).] $X$ is sequentially compact.
+\end{enumerate}
+\end{customthm}

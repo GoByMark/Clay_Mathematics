@@ -1,0 +1,69 @@
+\phantomsection
+\section*{6. Surfaces}
+\addcontentsline{toc}{section}{6. Surfaces}
+
+\phantomsection
+\subsection*{1. Manifolds}
+\addcontentsline{toc}{subsection}{1. Manifolds and Complexes}
+
+\begin{customdefinition}{6.1}[Second Countable] 
+\hypertarget{Definition_6.1}{\hyperlink{ex.d.6.1}{Click here for examples.}}\\
+A topological space $X$ is called {\bf second countable} if it has a countable (remember ``countable", huh? Probably the hard way, eh?) basis for its topology.\\
+\emph{Comment:} Like compactness, second countability should be seen as a ``smallness" condition on a topological space.
+\end{customdefinition}
+
+\begin{customdefinition}{6.2}[$n$-Dimensional Manifold] 
+\hypertarget{Definition_6.2}{\hyperlink{ex.d.6.2}{Click here for examples.}}
+\begin{enumerate}
+    \item[1)] Let $n \geqslant 1$. An $n-$dimensional (topological) manifold is a topological space $M$ such that 
+        \begin{enumerate}
+            \item[i)] $M$ is Hausdorff
+            \item[ii)] $M$ is second countable
+            \item[iii)] $M$ is locally Euclidean: for any $m \in M$, there exists an open set $x \in U \subset M$, an open set $\widetilde{U} \subset \R^n$ and a homeomorphism $\varphi: U \longrightarrow \widetilde{U}$.
+        \end{enumerate}
+    \item[2)] A {\bf surface} is a $2$-manifold.
+\end{enumerate}
+\end{customdefinition}
+
+\begin{customdefinition}{6.3}Let $X, Y$ be topological spaces. The disjoint union $X \bigsqcup Y$ is the topological space with set $X \bigsqcup Y$ with $U \subset X \bigsqcup Y$ open if 
+$$U \cap X \subset X, \text{ and } \,U \cap Y \subset Y$$
+are open.
+\end{customdefinition}
+
+\begin{customdefinition}{6.4}[Connected Sum] Let $M, N$ be $n$-manifolds, e.g(exempli gratia), surfaces. The {\bf connected sum} $M\#N$ is the $n$-manifold defined as follows:
+\begin{enumerate}
+    \item[i)] Pick $a \in M$, an open set $a \in U_a \subset M$ and a homeomorphism $\varphi_a : U_a \xrightarrow{\widesim{}} B_1(0) \subset \R^n$, and similarly for $b \in N$, giving $\left(b, U_b, \varphi_b\right)$. (Note: The sets $U_a$ must be sufficiently nice - ``regular Euclidean")
+    \item[ii)] Consider $M \setminus U_a$ and $N \setminus U_b$. The composition 
+            $$U_a \xrightarrow{\varphi_a} B_1(0) \xrightarrow{\varphi^{-1}_b} U_b$$
+            extends to a homeomorphism 
+            $$\Phi: \overline{U}_a \longrightarrow \overline{U}_b$$ 
+            sending the boundary $S^{n-1}$ to the boundary $S^{n-1}$.
+    \item[iii)] Define 
+            $$M \# N = \left(M \setminus U_a\right) \bigsqcup \left(N \setminus U_b\right) /_{\sim}$$
+            where 
+            $$\partial \overline{U}_a \ni x \sim \Phi(x) \in \partial \overline{U}_b.$$
+\end{enumerate}
+\emph{Remark: }If $M$ and $N$ are connected, then connected sum is connected. That is $M\# N$ is independent of all choices.
+\end{customdefinition}
+
+\begin{customthm}{6.1}
+Every compact connected surface is homeomorphic to exactly one of $\left\{\Sigma_g\right\}_{g \geqslant 0}$ or $\left\{N_g\right\}_{g \geqslant 0}$.
+\begin{enumerate}
+    \item[1.] $\Sigma_g = S^2 \# \underbrace{\Pi^2 \# \Pi^2 \# \dots \# \Pi^2}_{g \text{ times}}$ is called closed orientable surface of genus $g$.
+    \item[2.] $N_g = \mathbb{RP}^2\# \underbrace{\mathbb{RP}^2 \# \mathbb{RP}^2 \# \dots \# \mathbb{RP}^2}_{g \text{ times}}$ is called closed non-orientable surface of genus $g$.
+\end{enumerate}
+\end{customthm}
+
+\begin{customdefinition}{6.5}[Simplex] 
+Let $k$ be a positive integer. We say that the vectors $v_0, \dots, v_k$ are in general position, i.e. they do not all lie in an affine $(k -1)$-plane in $\R^n$. For low $k = $
+    \begin{enumerate}
+        \item[$1$:] The vectors are not equal.
+        \item[$2$:] The vectors are not colinear.
+    \end{enumerate}
+Define the $k$-dimensional simplex, or $k$-simplex spanned by them is 
+$$\bigtriangleup^n = \left\{a_0v_0 + a_1v_1 + \dots + a_kv_k \mid 0 \leqslant a_i \leqslant 1, \sum_{i = 0}^{k}a_i = 1\right\}$$
+In particular, the standard $k$-simplex is
+$$\left\{\left(a_0, \dots, a_k\right) \in \R^{k+1} \mid 0 \leqslant a_i \leqslant 1, \sum_{i = 0}^{k}a_i = 1\right\}$$
+\emph{Remark:} A $0$-simplex is a point, a $1$-simplex is a line segment, a $2$-simplex is a triangle, a $3$-simplex is a tetrahedron, and so on.
+\end{customdefinition}
+

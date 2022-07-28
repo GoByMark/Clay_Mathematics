@@ -1,0 +1,129 @@
+\phantomsection
+\section*{1. Fundamental Concepts}
+\addcontentsline{toc}{section}{1. Fundamental Concepts}
+
+\phantomsection
+\subsection*{1 Sets}
+\addcontentsline{toc}{subsection}{1. Sets}
+
+\begin{enumerate}
+    \item[1.]\emph{DeMorgan's Laws}
+            \begin{align*}
+            A - \left(B \cup C\right) &= \left(A - B\right)\cap \left(A - C\right)\\
+            A - \left(B \cap C\right) &= \left(A - B\right)\cup \left(A - C\right)
+            \end{align*}
+    \item[2.]Verbalized version of the \emph{DeMorgan's Laws}
+            \begin{center}
+                The complement of the union equals the intersection of the complements.\\
+                The complement of the intersection equals the union of the complements.
+            \end{center}
+    \item[3.]\emph{Distributive Law}
+            $$A \cup \left(B \cap C\right) = \left(A\cup B\right)\cap \left(A\cup C\right)$$
+    \item[4.]\emph{ Arbitrary Unions and Intersections}
+            \begin{enumerate}
+                \item[i)] Given a collection $\mathcal{A}$ of sets, the union of the elements of $\mathcal{A}$ is defined by the equation
+                $$\underset{A \in \mathcal{A}}{\bigcup} A = \left\{x \mid \, x\in A \text{ for at least one } A \in \mathcal{A}\right\}.$$
+                \item[ii)] The intersection of the elements of $\mathcal{A}$ is defined by the equation 
+                $$\underset{A \in \mathcal{A}}{\bigcap} A = \left\{x \mid \, x\in A \text{ for every } A \in \mathcal{A}\right\}.$$
+            \end{enumerate}
+    \item[5.] \emph{Cartesian Products}\\
+            Given sets $A$ and $B$, we define their cartesian product $A \times B$ to be the set of all ordered pairs $(a, b)$ for which $a$ is an elements of $A$ and $b$ is an element of $B$. Formally,
+            $$A \times B = \left\{(a, b) \mid a \in A \text{ and } b \in B\right\}$$
+        \item[6.] \emph{This guy}
+        $$(a, b) = \bigcup_{i=1}^{\infty} \left[a - \dfrac{b - a}{i}, b\right)$$
+\end{enumerate}
+
+\phantomsection
+\subsection*{2. Functions}
+\addcontentsline{toc}{subsection}{2. Functions}
+
+\begin{enumerate}
+    \item[1.] \emph{Rule of Assignment}\\
+    A {\bf rule of assignment} is a subset $r$ of the cartesian product $C \times D$ of two sets, having the property that each element of $C$ appears as the first coordinate of \emph{at most one} ordered pair belonging to $r$. Thus, a subset $r$ of $C \times D$ is a rule of assignment if 
+    $$\left[(c,d) \in r \text{ and } (c, d') \in r\right] \implies \left[d = d'\right]$$
+    \item[2.] \emph{Domain and the Image Set}\\
+    Given a rule of assignment $r$, the {\bf domain} of $r$ is defined to be the subset of $C$ consisting of all first coordinates of elements of $r$, and the {\bf image set} of $r$ is defined as the subset of $D$ consisting of all second coordinates of elements of $r$. Formally,
+    \begin{align*}
+        \text{domain }r &= \left\{c \mid \text{there exists $d \in D$ such that $(c, d) \in r$}\right\}.\\
+        \text{image }r & =\left\{d \mid \text{there exits $c \in C$ such that $(c, d) \in r$}\right\}
+    \end{align*}
+    \item[3.] \emph{Function}\\
+    A {\bf function} $f$ is a rule of assignment $r$, together with a set $B$ that contains the image set of $r$, The domain $A$ of the rule $r$ is also called the {\bf domain} of the function $f$; the image set of $r$ is also called the {\bf image set} of $f$; and the set $B$ is called the {\bf range} of $f$.
+    $$f: A \longrightarrow B$$
+    \item[4.] \emph{Restriction}\\
+    If $f: A \longrightarrow B$ and if $A_0$ is a subset of $A$, we define the {\bf restriction} of $f$ to $A_0$ to be the function mapping $A_0$ into $B$ whose rule is 
+    $$\left\{\left(a, f(a)\right) \mid a \in A_0\right\}$$
+    It is denoted by $f_{\mid A_0}$, which is read ``$f$ restricted to $A_0$."
+    \item[5.] \emph{Composite Function}\\
+    Given functions $f: A \longrightarrow B$ and $g: B \longrightarrow C$, we define the {\bf composite} $g \circ f$ of $f$ and $g$ as the function $g \circ f: A \longrightarrow C$ defined by the equation $\left(g \circ f\right)(a) = g\left(f(a)\right)$. Formally, $g \circ f : A \longrightarrow C$ is the function whose rule is 
+    $$\left\{(a,c) \mid \text{ For some $c \in B, f(a) = b$ and $g(b) =c$}\right\}.$$
+    \item[6.] \emph{Injective, Surjective, Bijective, and Inverse}
+    \begin{enumerate}
+        \item[i)] A function is $f: A \longrightarrow B$ is said to be {\bf injective} (or {\bf one-to-one}) if for each pair of distinct points of $A$, their images under $f$ are distinct. Formally, $f$ is injective if 
+        $$\left[f(a) = f(a')\right] \implies \left[a = a'\right]$$
+        \item[ii)] A function is $f: A \longrightarrow B$ is said to be {\bf surjective} (or $f$ is said to map $A$ {\bf onto} $B$) if for every element of $B$ is the image of some element of $A$ under the function $f$. Formally, $f$ is injective if 
+        $$\left[b \in B\right] \implies \left[b = f(a) \text{ for at least one } a \in A \right]$$
+        \item[iii)] If $f: A \longrightarrow B$ is both injective and surjective, it is said to be {\bf bijective} (or is called a {\bf one-to-one correspondence}).
+        \item[iv)] If $f$ is bijective, there exists a function from $B$ to $A$ called the {\bf inverse} of $f$. It is denoted by $f^{-1}$ and is defined by letting $f^{-1}(b)$ be that unique element $a$ of $A$ for which $f(a) = b$.
+    \end{enumerate}
+    \emph{Comment: }This comment is added solely because the importance it plays in the homework and stuff:\begin{enumerate}
+        \item[a).] The composite of two injective functions is injective, and the composite of two surjective functions is surjective; it follows that the composite of two bijective functions is bijective.
+        \item[b).] Given $b \in B$, the fact that $f$ is surjective implies that there exists such an element $a \in A$; the fact that $f$ is injective implies that there is only one such element $a$. It is easy to see that if $f$ is bijective $f^{-1}$ is also bijective.
+        \item[c).] The inverse of a composite function $\left(g \circ f \right)(a)$ is given by $(g \circ f)^{-1}(a) = f^{-1}\left(g^{-1}(r)\right)$.
+        \item[d).] Given that $f:A \longrightarrow B$ and $g: B\longrightarrow C$:
+            \begin{itemize}
+                \item If $g \circ f$ is injective then $f$ is injective.
+                \item If $g \circ f$ is surjective then $g$ is surjective.
+            \end{itemize}
+            so if $g \circ f$ is bijective then $f$ is injective and $g$ is onto, but the converse is not true.
+            \begin{proof} The two bullet points and the comment:
+                \begin{itemize}
+                    \item $f(x) = f(x') \implies g\left(f(x)\right) = g\left(f(x')\right) \implies \left(g \circ f\right)(x) = \left(g \circ f\right)(x') \implies x = x'$
+                    \item If $c \in C$ then $\exists\, a$ such that
+                    $$\left(a \in A \land \left(g \circ f\right)(a) = c\right) \implies \left(a' \in A \land g \left(f(a')\right) = c\right)$$
+                    Consider $b = f(a) \in B$ then $g(b) = c.$
+                    \end{itemize}
+            Now take $A = \{1, 2\}, \,B = \{3, 4, 5\}\, C = \{6, 7\}$ and 
+            $$f(1)= 3, f(2) = 4; g(3) = g(4) = 6, g(5) = 7$$
+            $f$ is injective and $g$ is onto but 
+            $$\left(g \circ f\right)(1) = \left(g \circ f\right)(2) = 6$$
+            which means that $g\circ f$ is not a bijective map.
+            \end{proof}
+    \end{enumerate}
+    \item[7.] \emph{Image and Preimage}\\
+        Let $f: A \longrightarrow B$. If $A_0$ is a subset of $A$, we denote $f(A_0)$ the set of all images of points of $A_0$ under the function $f$; this set is called the {\bf image} of $A_0$ under $f$. Formally,
+        $$f(A_0) = \left\{b \mid b = f(a) \text{ for at least one $a \in A_0$}\right\}.$$
+        On the other hand, if $B_0$ is a subset of $B$, we denote by $f^{-1}(B_0)$ the set of all elements of $A$ whose images under $f$ lie in $B_0$; it is called the {\bf preimage} of $B_0$ under $f$ (or the ``counterimage," or the ``inverse image," of $B_0$). Formally,
+        $$f^{-1}\left(B_0\right) = \left\{a \mid f(a) \in B_0\right\}.$$
+        \emph{Comment:} Note that if $f: A \longrightarrow B$ is bijective and $B_0 \subset B$, we have two meanings for the notation $f^{-1}\left(B_0\right)$. It can taken to denote the {\bf preimage} of $B_0$ under the function $f$ or to denote the {\bf image} of $B_0$ under the function $f^{-1}: B \longrightarrow A$. These two meanings give precisely the same subset of $A$, however, so there  is, in fact, no ambiguity.
+    \item[8.] $f^{-1}\left(f(A_0)\right)\stackrel{?}{=} A_0$ and $f\left(f^{-1}(B_0)\right)\stackrel{?}{=} B_0$\\
+        If $f: A \longrightarrow B$ and if $A_0 \subset A$ and $B_0 \subset B$, then
+        $$A_0 \subset f^{-1}\left(f(A_0)\right) \,\,\,\,\,\,\text{ and } \,\,\,\,\,\, f\left(f^{-1}(B_0)\right) \subset B_0.$$
+        The first inclusion is an equality if $f$ is injective, and the second inclusion is an equality if $f$ is surjective.
+\end{enumerate}
+
+\phantomsection
+\subsection*{3. Relations}
+\addcontentsline{toc}{subsection}{3. Relations}
+
+\begin{enumerate}
+    \item[1.] \emph{Relation}\\
+    A {\bf relation} on a set $A$ is a subset $C$ of the cartesian product $A \times A$. A relation $R$ can have the following properties:
+        \begin{enumerate}
+            \item[i)] (Reflexive) $xRx$ for all $x \in A$;
+            \item[ii)] (Symmetric) $xRy \implies yRx$ for all $x, y \in A$;
+            \item[iii)] (Transitive) $xRy \land yRz \implies xRz$ for all $x, y, z \in A$;
+            \item[iv)] (Antisymmetric) $xRy \land yRx \implies x = y$ for all $x, y, z \in A$;
+            \item[v)] (Asymmetric) $xRy \implies y\cancel{R}x$ for all $x, y \in A$;
+            \item[vi)] (Irreflexive) $x\cancel{R}x$ for all $x \in A$.
+        \end{enumerate}
+    with $i) \sim iii)$ defines an {\bf equivalence relation} (usually write $R$ as $\sim$) on set $A$.
+    \item[2.] \emph{Equivalence Class}\\
+    Given an equivalence relation $\sim$ on a set $A$ and an element $x$ of $A$, we define a certain subset $E$ of $A$, called the {\bf equivalence class} determined by $x$, by the equation 
+        $$E = \left\{y \mid y \sim x.\right\}$$
+        Note that the equivalence class $E$ determined by $x$ contains $x$, since $x \sim x$.
+    \item[3.] \emph{Partition}\\
+    A {\bf partition} of a set $A$ is a collection of disjoint nonempty subsets of $A$ whose union is all of $A$.
+    \item[4.] \emph{Order Relation}\\
+    Not mentioned in class and not really needed for the exams and homework, will come back later to add the information.
+\end{enumerate}
